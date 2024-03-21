@@ -6,7 +6,7 @@
 
 A Campus Tour Guide with On-campus Landmarks Recognition System by Convolutional Neural Network Models
 
-
+https://github.com/zhangwengyu999/Campus_Tour_Guide/assets/68627255/f600622f-5322-464d-badc-014e46b2344f
 
 ## 1. INTRODUCTION
 
@@ -31,19 +31,9 @@ I currently have **14 labels** on landmark buildings inside PolyU main campus. I
     <div style="max-width: 40%;display: inline-block;"><img src="img/15.png"></div>
     <div style="max-width: 40%;display: inline-block;"><img src="img/16.png"></div>
 </div>
-<div style="overflow: hidden;justify-content:space-around;">
-    <div style="max-width: 40%;display: inline-block;"><img src="img/17.png"></div>
-    <div style="max-width: 40%;display: inline-block;"><img src="img/18.png"></div>
-</div>
 </center>
 
-<center>
-<div style="overflow: hidden;justify-content:space-around;">
-    <div style="max-width: 25%;display: inline-block;"><img src="img/1.png"></div>
-    <div style="max-width: 25%;display: inline-block;"><img src="img/2.png"></div>
-    <div style="max-width: 25%;display: inline-block;"><img src="img/3.png"></div>
-</div>
-</center>
+
 
 ---
 
