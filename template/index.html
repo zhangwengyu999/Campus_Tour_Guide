@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <link rel="stylesheet" href='/template/main.css' />
+    <title>Campus Tour Guide @ PolyU</title>
+</head>
+
+<body style="background-color:#e3e3e3;">
+    <center>
+    <h2>Campus Tour Guide @ PolyU</h2>
+    <p>On-campus Landmarks Recognition System by Convolutional Neural Network Models</p>
+    <form method="POST" enctype="multipart/form-data" id="myform" action="/" onsubmit="return validateForm()">
+        <label for="myFile" class="input"><b>Step 1.</b> </label>
+        <input type="file" id="myFile" name="uploaded-file" accept="image/*" style="width:220px">
+        <br>
+        <br>
+        <label for="myFile" class="input"><b>Step 2.</b> </label>
+        <input id="mySubmit" type="submit" value="Predict" style="width:220px">
+    </form>
+    <br>
+    <div class="left">
+        <h3 style="color:blue;">Predicted result: {{ img_label }}</h3>
+        <img src="{{ user_image }}" alt="Image" width="80%" height="80%">    
+    </div>
+    <div class="right">
+        <p>More info:</p>
+        <iframe  
+            id="ifr"
+            width=80% 
+            onresize = "this.height=this.contentWindow.document.body.scrollWidth*0.45"
+            src="{{ img_map_url }}"
+            frameborder=0
+            scrolling="no">
+        </iframe>
+    </div>
+    <div width="80%">
+        <ol>
+            Note:
+            <li> <b>Current available labels (inside PolyU main campus only)</b>: 1: Communal Building; 2: LibCafe; 3: Li Ka Shing Tower; 4: Jockey Club Innovation Tower; 5: Lee Shau Kee Building; 6: Block VA; 7: Logo Square; 8: Jockey Club Auditorium; 9: Global Student Hub; 10: Industrial Centre; 11: Pao Yue-Kong Library; 12: Main Entrance; 13: Block X Sport Center; 14: Lawn </li>
+            <li>The model has a training accuracy of 0.95, but the performance in real world is <b>NOT guaranteed</b> due to limitation of training dataset.</li>
+            <li>The model has <b>NOT</b> been trained to recognize buildings inside PolyU main campus <b>at night</b>.</li>
+            <li>The uploaded image will be immediately <b>deleted</b> from the server once the prediction is done.</li>
+        </ol>
+    </div>
+
+    <footer>
+        <p>Made by <a href="https://mike.ultrafish.io">ZHANG WENGYU</a>, PolyU</p>
+    </footer>
+    </center>
+</body>
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+    function validateForm() {
+        var file = document.getElementById("myFile");
+        if (file.files.length == 0) {
+            alert("Please choose a file first");
+            return false;
+        }
+    }
+	var content = document.getElementById("ifr");	
+    content.height = (0.45*content.contentWindow.document.body.scrollWidth)+'px'
+</script>
+
+<style>
+    ol {
+        width: 80% !important;
+        display: inline-block;
+    }
+
+    input {
+        display: inline-block;
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: #a3a3a3;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: 'Times New Roman', Times, serif;
+        color: #000;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .left {
+    float: left;
+    width: 50%;
+    }
+
+    .main {
+    padding: 20px;
+    float: left;
+    width: 90%;
+    }
+
+    .right {
+    float: left;
+    width: 50%;
+    }
+
+    @media screen and (max-width: 800px) {
+        .left {
+            float: left;
+            width: 100%;
+        }
+        .right {
+            float: left;
+            width: 100%;
+        }
+    }
+  </style>
+</html>
